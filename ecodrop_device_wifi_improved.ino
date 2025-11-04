@@ -12,8 +12,8 @@
 const char* WIFI_SSID = "Vince";
 const char* WIFI_PASS = "vinceba1";
 
-// PRODUCTION: Render deployment - HTTPS (Port 443)
-const char* API_HOST  = "smc-ecodrop.onrender.com";  // Your actual Render URL
+// PRODUCTION: Railway deployment - HTTPS (Port 443)
+const char* API_HOST  = "smc-ecodrop.up.railway.app";  // Your Railway URL
 const uint16_t API_PORT = 443;                        // HTTPS port
 const bool USE_HTTPS = true;                          // Use HTTPS for production
 

@@ -10,7 +10,7 @@ class LoginForm(forms.Form):
     username = forms.CharField(
         max_length=100,
         widget=forms.TextInput(attrs={
-            'placeholder': 'Enter your ID Number',
+            'placeholder': 'ID Number, Username, or Email',
             'class': 'input'
         })
     )

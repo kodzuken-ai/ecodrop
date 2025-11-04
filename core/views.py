@@ -60,9 +60,32 @@ def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
+            username_or_id_or_email = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password)
+            
+            # Try to find the user by username, school_id, or email
+            user = None
+            
+            # Method 1: Try authenticating with username directly
+            user = authenticate(request, username=username_or_id_or_email, password=password)
+            
+            # Method 2: Try finding by school_id (ID Number)
+            if user is None:
+                try:
+                    profile = UserProfile.objects.get(school_id=username_or_id_or_email)
+                    user = authenticate(request, username=profile.user.username, password=password)
+                except UserProfile.DoesNotExist:
+                    pass
+            
+            # Method 3: Try finding by email
+            if user is None:
+                try:
+                    user_obj = User.objects.get(email=username_or_id_or_email)
+                    user = authenticate(request, username=user_obj.username, password=password)
+                except User.DoesNotExist:
+                    pass
+            
+            # If user found and authenticated, log them in
             if user is not None:
                 login(request, user)
                 if user.is_staff:
@@ -73,7 +96,7 @@ def login_view(request):
                         return redirect('teacher_dashboard')
                 return redirect('dashboard')
             else:
-                messages.error(request, 'Invalid ID Number or password. Please try again.')
+                messages.error(request, 'Invalid ID Number/Username/Email or password. Please try again.')
         else:
             messages.error(request, 'Please fill in all required fields correctly.')
     else:
