@@ -99,7 +99,7 @@
 <section class="cover" style="position: relative !important; height: 220px !important;">
     <img src="{% static 'core/images/smcbackground.jpg' %}" alt="Campus" class="cover-img" style="width: 100%; height: 220px; object-fit: cover;">
     <div class="profile-card" style="position: absolute !important; left: 30px !important; bottom: 20px !important; display: flex !important; z-index: 100 !important;">
-        <div class="avatar-pic" style="width: 100px; height: 100px; border-radius: 8px; background: #fff; color: #27ae60; display: grid; place-items: center; font-weight: 700; font-size: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">{{ user.first_name|default:user.username|first|upper }}</div>
+        <div class="avatar-pic" style="width: 100px; height: 100px; border-radius: 8px; background: #fff; color: #4a90e2; display: grid; place-items: center; font-weight: 700; font-size: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">{{ user.first_name|default:user.username|first|upper }}</div>
         <div class="profile-info" style="display: flex; flex-direction: column; justify-content: center;">
             <div class="name" style="font-weight: 700; font-size: 22px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">{{ user.get_full_name|default:user.username }}</div>
             <div class="subtitle" style="color: #fff; font-size: 13px; margin-top: 2px; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Teacher/Faculty</div>

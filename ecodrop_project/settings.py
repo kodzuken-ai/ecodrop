@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
     'ecodrop.ccshub.uk',
     'smc-ecodrop.onrender.com',  # Your actual Render URL
     '*.onrender.com',  # Allow all Render subdomains
+    '*.railway.app',  # Allow all Railway subdomains
     '*'
 ]
 
@@ -42,6 +43,7 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://ecodrop.ccshub.uk',
     'https://smc-ecodrop.onrender.com',  # Your actual Render URL
+    'https://*.railway.app',  # Railway deployment URLs
     'http://localhost:8000',
     'http://127.0.0.1:8000',
     'http://10.62.179.225:8000',  # Local network

@@ -22,7 +22,7 @@ const bool USE_HTTPS = true;                          // Use HTTPS for productio
 // const uint16_t API_PORT = 8000;            // Local Django dev server port
 // const bool USE_HTTPS = false;              // Use HTTP for local testing
 
-const char* API_KEY  = "41c7fc4c-a9e5-46de-946d-f1db2526a9a7";           // same as Device.device_id in Django
+const char* API_KEY  = "abe58673-8bc1-4d91-8245-022b3858b0d4";           // same as Device.device_id in Django
 const char* API_DEVICE_HEARTBEAT_PATH = "/api/device/heartbeat/";
 const char* API_DEVICE_DETECT_PATH    = "/api/device/detection/";
 const char* API_USER_VERIFY_PATH      = "/api/user/verify/";    // added: user verify endpoint
