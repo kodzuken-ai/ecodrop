@@ -5,4 +5,4 @@ nixPkgs = ["...", "python311"]
 cmds = ["python manage.py collectstatic --no-input"]
 
 [start]
-cmd = "python manage.py migrate --no-input && gunicorn ecodrop_project.wsgi --log-file - --bind 0.0.0.0:$PORT"
+cmd = "python manage.py migrate --no-input && python create_superuser.py && gunicorn ecodrop_project.wsgi --log-file - --bind 0.0.0.0:$PORT"
