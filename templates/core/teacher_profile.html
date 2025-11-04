@@ -16,8 +16,18 @@
 
 {% block extra_styles %}
 <style>
-  .cover { position: relative !important; height: 220px !important; min-height: 220px !important; overflow: hidden; }
-  .cover-img { width: 100% !important; height: 220px !important; min-height: 220px !important; object-fit: cover !important; }
+  .cover { 
+    position: relative !important; 
+    height: 220px !important; 
+    min-height: 220px !important; 
+    overflow: hidden; 
+  }
+  .cover-img { 
+    width: 100% !important; 
+    height: 220px !important; 
+    min-height: 220px !important; 
+    object-fit: cover !important; 
+  }
   .profile-card { 
     position: absolute !important; 
     left: 30px !important; 
@@ -51,8 +61,25 @@
     margin-top: 2px !important;
     text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
   }
-  .tabs { margin: 40px 0 12px; background:#fff; border-radius: 8px; padding: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); display:flex; gap:16px; }
-  .tab { padding: 10px 12px; color:#374151; text-decoration:none; border-bottom: 2px solid transparent; }
+  .tabs { 
+    margin: 40px 0 12px; 
+    background:#fff; 
+    border-radius: 8px; 
+    padding: 8px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06); 
+    display:flex; 
+    gap:16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tab { 
+    padding: 10px 12px; 
+    color:#374151; 
+    text-decoration:none; 
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .tab.active { border-color:#27ae60; color:#111827; }
   .info-grid {
     display: grid;
@@ -62,34 +89,89 @@
   }
   .info-grid .row {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;
     padding: 10px 0;
     border-bottom: 1px solid #f3f4f6;
   }
   .info-grid .label {
     color: #6b7280;
+    font-size: 13px;
   }
   .info-grid .val {
     font-weight: 600;
+    word-break: break-word;
   }
   
-  /* Responsive Styles */
+  /* Mobile Responsive Styles */
   @media (max-width: 768px) {
-    .profile-card { left: 15px !important; bottom: 10px !important; }
-    .avatar-pic { width: 70px !important; height: 70px !important; font-size: 30px !important; }
-    .profile-info .name { font-size: 18px !important; }
-    .tabs { flex-wrap: wrap; gap: 8px; }
-    .tab { font-size: 0.9rem; padding: 8px 10px; }
-    .info-grid { grid-template-columns: 1fr; }
+    .cover {
+      height: 180px !important;
+      min-height: 180px !important;
+    }
+    .cover-img {
+      height: 180px !important;
+      min-height: 180px !important;
+    }
+    .profile-card {
+      left: 15px !important;
+      bottom: 15px !important;
+      gap: 10px !important;
+    }
+    .avatar-pic {
+      width: 70px !important;
+      height: 70px !important;
+      font-size: 28px !important;
+    }
+    .profile-info .name {
+      font-size: 18px !important;
+    }
+    .profile-info .subtitle {
+      font-size: 11px !important;
+    }
+    .tabs {
+      margin: 20px 0 12px;
+      padding: 6px;
+      gap: 8px;
+    }
+    .tab {
+      padding: 8px 10px;
+      font-size: 14px;
+    }
+    .info-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .info-grid .row {
+      padding: 12px 0;
+    }
   }
-  @media (max-width: 576px) {
-    .cover { height: 180px !important; min-height: 180px !important; }
-    .cover-img { height: 180px !important; min-height: 180px !important; }
-    .avatar-pic { width: 60px !important; height: 60px !important; font-size: 24px !important; }
-    .profile-info .name { font-size: 16px !important; }
-    .profile-info .subtitle { font-size: 12px !important; }
-    .tabs { padding: 6px; }
-    .tab { padding: 6px 8px; font-size: 0.85rem; }
+  
+  @media (max-width: 480px) {
+    .cover {
+      height: 150px !important;
+      min-height: 150px !important;
+    }
+    .cover-img {
+      height: 150px !important;
+      min-height: 150px !important;
+    }
+    .profile-card {
+      left: 10px !important;
+      bottom: 10px !important;
+      gap: 8px !important;
+    }
+    .avatar-pic {
+      width: 60px !important;
+      height: 60px !important;
+      font-size: 24px !important;
+    }
+    .profile-info .name {
+      font-size: 16px !important;
+    }
+    .profile-info .subtitle {
+      font-size: 10px !important;
+    }
   }
 </style>
 {% endblock %}
