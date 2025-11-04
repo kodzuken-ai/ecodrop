@@ -124,6 +124,22 @@
             transform: scale(0.95);
         }
         
+        /* Sidebar Overlay */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 56px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 140;
+            transition: opacity 0.3s ease;
+        }
+        .sidebar-overlay.show {
+            display: block;
+        }
+        
         /* Responsive */
         @media (max-width: 900px) {
             .content-wrap { 
@@ -136,7 +152,7 @@
                 left: -280px;
                 width: 280px;
                 height: calc(100vh - 56px);
-                z-index: 50;
+                z-index: 150;
                 transition: left 0.3s ease;
                 box-shadow: 4px 0 12px rgba(0,0,0,0.15);
             }
